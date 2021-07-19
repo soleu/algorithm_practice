@@ -8,10 +8,14 @@
 # 여러분은 여학생의 수 N, 남학생의 수 M, 인턴쉽에 참여해야하는 인원 K가 주어질 때 만들 수 있는 최대의 팀 수를 구하면 된다.
 
 n,m,k=map(int,input().split()) 
+totalMember=n+m
+TeamNumber= min(n//2,m)
+remainMember=totalMember-TeamNumber*3
+intershipMember=0
+if(remainMember<k):
+    k-=remainMember 
+    intershipMember=(k//3)
+    if(k%3>0) : intershipMember+=1
 
-minNum= min(n//2,m)
-intershipMember=(k//3)
-if(k%3>0) : intershipMember+=1
-print(minNum)
-print(intershipMember)
+print(TeamNumber-intershipMember)
 # print(minNum-intershipMember)
